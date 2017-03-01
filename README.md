@@ -14,3 +14,17 @@ git clone https://github.com/handrake0724/emacsSetup.git
 cd ~
 git clone https://github.com/handrake0724/emacsSetup.git
 ```
+
+## elpa package recompile
+It would be necessary to recompile elpa packages after cloning the repository
+
+``` lisp
+M-: (byte-recompile-directory package-user-dir nil 'force)
+```
+
+## elpa package update
+``` lisp
+M-x package-list-packages Enter
+U Enter
+x Enter
+```
