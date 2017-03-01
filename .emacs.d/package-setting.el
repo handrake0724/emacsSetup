@@ -97,12 +97,19 @@
 (setq TeX-command-extra-options "-shell-escape")
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-mode t)
-(setq TeX-view-program-list '(("Okular" "okular --unique %o #src:%n%b")))
-(setq TeX-view-program-selection '((output-pdf "Okular")))
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; with AUCTeX LaTeX math mode
 (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
 (setq TeX-quote-after-quote t)
+(cond
+ ((eq system-type 'gnu/linux)
+  (setq TeX-view-program-list '(("Okular" "okular --unique %o #src:%n%b")))
+  (setq TeX-view-program-selection '((output-pdf "Okular"))))
+ ((eq system-type 'windows-nt)
+  (setq TeX-view-program-list '(("Sumatra PDF" ("d:/Apps/SumatraPDF/SumatraPDF.exe -reuse-instance" (mode-io-correlate " -forward-search %b %n")
+                                 " %o"))))
+  (setq TeX-view-program-selection '((output-pdf "Sumatra PDF"))))
+ )
 ;; (latex-preview-pane-enable)
 
 ;; realgud
