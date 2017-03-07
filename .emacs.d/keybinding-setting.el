@@ -101,3 +101,22 @@
           (lambda ()
               (local-set-key [C-tab] 'company-complete)
           ))
+
+;; environment modules
+    ;; load and init emacs lisp modules if not already loaded...
+(if (and (getenv "MODULESHOME")
+         (file-directory-p (getenv "MODULESHOME"))
+         (not (fboundp 'module)))
+    (progn
+      (if (load-file (concat (getenv "MODULESHOME") "/init/lisp"))
+          (define-key global-map "\C-cm" 'Modules-module))))
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (local-set-key (kbd "<f12>")
+                           (lambda ()
+                             (interactive)
+                             (Modules-module "load gcc openmpi OpenFOAM/4.x")
+                             )
+                           )
+            ))
