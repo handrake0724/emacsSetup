@@ -104,12 +104,6 @@
 
 ;; environment modules
     ;; load and init emacs lisp modules if not already loaded...
-(if (and (getenv "MODULESHOME")
-         (file-directory-p (getenv "MODULESHOME"))
-         (not (fboundp 'module)))
-    (progn
-      (if (load-file (concat (getenv "MODULESHOME") "/init/lisp"))
-          (define-key global-map "\C-cm" 'Modules-module))))
 
 (add-hook 'c++-mode-hook
           (lambda ()

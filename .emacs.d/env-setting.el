@@ -1,13 +1,19 @@
-(setenv "PATH"
- (concat
-  "/home/seongmo/Desktop/AutoGrid/3rdparty/CGAL-4.7/include" ":"
-  "/home/seongmo/Desktop/AutoGrid/3rdparty/eigen3" ":"
-  "/opt/llvm/bin" ":"  
-  (getenv "PATH")))
-(setenv "LD_LIBRARY_PATH"
-        (concat
-         "/home/seongmo/Desktop/AutoGrid/3rdparty/boost-1.59/lib" ":"
-         "/home/seongmo/Desktop/AutoGrid/3rdparty/CGAL-4.7/lib" ":"
-         "/opt/llvm/lib" ":"         
-         (getenv "LD_LIBRARY_PATH")))
-
+(cond
+ ;; ((eq system-type 'gnu/linux)
+ ;;  (setenv "PATH"
+ ;;          (concat
+ ;;           "/opt/llvm/bin" ":"
+ ;;           (getenv "PATH")))
+ ;;  (setenv "LD_LIBRARY_PATH"
+ ;;          (concat
+ ;;           "/opt/llvm/lib" ":"
+ ;;           (getenv "LD_LIBRARY_PATH")))
+ ;;  )
+ ((eq system-type 'windows-nt);; ms windows
+  (setenv "PATH"
+          (concat
+           "D:/Apps/Git/bin" ";"
+           "D:/texlive/2016/bin/win32" ";"
+           (getenv "PATH")))
+  )
+)

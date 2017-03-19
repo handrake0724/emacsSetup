@@ -112,6 +112,21 @@
  )
 ;; (latex-preview-pane-enable)
 
+;; environment module
+(defun Modules-module (command)
+  "Run the string COMMAND as a Modules cmd using the tcl version of modules. "
+  (interactive (list (read-string "Module cmd: " nil nil)))
+    ;; clear cmd buffer, log buffer is replaced below
+
+  (with-temp-buffer
+    (shell-command
+     (concat "/usr/bin/tclsh /usr/share/Modules/default/libexec/modulecmd.tcl lisp "
+             (shell-quote-argument command))
+     (current-buffer))
+    (eval-buffer))
+  )
+
+
 ;; realgud
 (require 'realgud)
 
