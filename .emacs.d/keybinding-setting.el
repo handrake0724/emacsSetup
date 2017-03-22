@@ -107,10 +107,20 @@
 
 (add-hook 'c++-mode-hook
           (lambda ()
-            (local-set-key (kbd "<f12>")
+            (local-set-key (kbd "C-c m o f 4 x")
                            (lambda ()
                              (interactive)
                              (Modules-module "load gcc openmpi OpenFOAM/4.x")
+                             )
+                           )
+            ))
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c m f e 4 0")
+                           (lambda ()
+                             (interactive)
+                             (Modules-module "load gcc openmpi FOAM-extend/4.0")
                              )
                            )
             ))

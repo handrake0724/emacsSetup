@@ -118,12 +118,21 @@
   (interactive (list (read-string "Module cmd: " nil nil)))
     ;; clear cmd buffer, log buffer is replaced below
 
-  (with-temp-buffer
+  (let (
+        (cmd-buffer (get-buffer-create "*modules-cmd*"))
+        (log-buffer (get-buffer-create "*modules-log*"))
+        )
+    (set-buffer cmd-buffer)
+    (delete-region (point-min) (point-max))
     (shell-command
      (concat "/usr/bin/tclsh /usr/share/Modules/default/libexec/modulecmd.tcl lisp "
              (shell-quote-argument command))
-     (current-buffer))
-    (eval-buffer))
+     cmd-buffer
+     log-buffer
+     )
+    (set-buffer cmd-buffer)
+    (eval-buffer)
+    )
   )
 
 
