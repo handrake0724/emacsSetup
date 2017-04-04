@@ -12,6 +12,9 @@
 
 ;; (global-set-key (kbd "<f5>") 'gdb)
 (global-set-key (kbd "<f5>") 'realgud:gdb)
+(if (bound-and-true-p realgud:gdb)
+    (define-key minor-mode-map (kbd "<f5>") nill)
+)
 (global-set-key (kbd "<f7>") 'previous-error)
 (global-set-key (kbd "<f8>") 'next-error)
 (global-set-key (kbd "<f10>") 'compile)

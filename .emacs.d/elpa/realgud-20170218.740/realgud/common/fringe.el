@@ -56,7 +56,7 @@
   (progn
     (defface realgud-overlay-arrow1
       '((t
-	 :foreground "black"
+	 :foreground "red"
 	 :weight bold))
       "Fringe face for current position."
       :group 'realgud)
