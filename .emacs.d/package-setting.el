@@ -11,6 +11,8 @@
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
 (company-quickhelp-mode 1)
+(setq company-idle-delay nil)
+
 ;; rtags
 (defun setup-flycheck-rtags ()
   (interactive)
