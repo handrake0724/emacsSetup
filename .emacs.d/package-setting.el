@@ -11,7 +11,7 @@
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
 (company-quickhelp-mode 1)
-(setq company-idle-delay nil)
+;(setq company-idle-delay nil)
 
 ;; rtags
 (defun setup-flycheck-rtags ()
@@ -33,7 +33,8 @@
   ;; jump to definition and see the keybindings.
   (rtags-enable-standard-keybindings)
   ;; comment this out if you don't have or don't use helm
-  (setq rtags-use-helm t)
+  ;; (setq rtags-use-helm t)
+
   ;; company completion setup
   (setq rtags-autostart-diagnostics t)
   (rtags-diagnostics)
@@ -47,35 +48,42 @@
   (add-hook 'c++-mode-common-hook 'setup-flycheck-rtags)
   )
 
-;; helm mode
-(require 'helm-config)
-(require 'helm-grep)
+;; swiper mode
+(require 'swiper)
+(require 'ivy)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
 
-(setq
- helm-scroll-amount 4 ; scroll 4 lines other window using M-<next>/M-<prior>
- helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
- helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
- helm-candidate-number-limit 500 ; limit the number of displayed canidates
- helm-ff-file-name-history-use-recentf t
- helm-move-to-line-cycle-in-source t ; move to end or beginning of source when reaching top or bottom of source.
- helm-buffers-fuzzy-matching t          ; fuzzy matching buffer names when non-nil
-                                        ; useful in helm-mini that lists buffers
- )
+;; ;; helm mode
+;; (require 'helm-config)
+;; (require 'helm-grep)
 
-(add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
+;; (setq
+;;  helm-scroll-amount 4 ; scroll 4 lines other window using M-<next>/M-<prior>
+;;  helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
+;;  helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
+;;  helm-candidate-number-limit 500 ; limit the number of displayed canidates
+;;  helm-ff-file-name-history-use-recentf t
+;;  helm-move-to-line-cycle-in-source t ; move to end or beginning of source when reaching top or bottom of source.
+;;  helm-buffers-fuzzy-matching t          ; fuzzy matching buffer names when non-nil
+;;                                         ; useful in helm-mini that lists buffers
+;;  )
 
-;; Locate the helm-swoop folder to your path
-(require 'helm-swoop)
+;; (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
-;; Save buffer when helm-multi-swoop-edit complete
-(setq helm-multi-swoop-edit-save t)
-;; If this value is t, split window inside the current window
-(setq helm-swoop-split-with-multiple-windows t)
-;; Split direcion. 'split-window-vertically or 'split-window-horizontally
-(setq helm-swoop-split-direction 'split-window-vertically)
-;; If nil, you can slightly boost invoke speed in exchange for text color
-(setq helm-swoop-speed-or-color t)
-(helm-mode 1)
+;; ;; Locate the helm-swoop folder to your path
+;; (require 'helm-swoop)
+
+;; ;; Save buffer when helm-multi-swoop-edit complete
+;; (setq helm-multi-swoop-edit-save t)
+;; ;; If this value is t, split window inside the current window
+;; (setq helm-swoop-split-with-multiple-windows t)
+;; ;; Split direcion. 'split-window-vertically or 'split-window-horizontally
+;; (setq helm-swoop-split-direction 'split-window-vertically)
+;; ;; If nil, you can slightly boost invoke speed in exchange for text color
+;; (setq helm-swoop-speed-or-color t)
+;; (helm-mode 1)
 
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
