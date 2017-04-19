@@ -135,7 +135,9 @@
     (set-buffer cmd-buffer)
     (delete-region (point-min) (point-max))
     (shell-command
-     (concat "/usr/bin/tclsh /usr/share/Modules/default/libexec/modulecmd.tcl lisp "
+     ;; (concat "/usr/bin/tclsh /usr/share/Modules/default/libexec/modulecmd.tcl lisp "
+     ;;         (shell-quote-argument command))
+     (concat "/usr/share/Modules/lmod/lmod/libexec/lmod lisp "
              (shell-quote-argument command))
      cmd-buffer
      log-buffer

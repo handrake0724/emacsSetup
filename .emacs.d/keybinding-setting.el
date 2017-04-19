@@ -31,6 +31,10 @@
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-x l") 'counsel-locate)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+;; company
+(global-set-key [C-tab] 'company-complete)
+
 (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 
 ;; ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
@@ -112,10 +116,6 @@
           (lambda ()
               (local-set-key (kbd "M-.") 'rtags-find-file)
               ))
-(add-hook 'c++-mode-hook
-          (lambda ()
-              (local-set-key [C-tab] 'company-complete)
-          ))
 
 ;; environment modules
     ;; load and init emacs lisp modules if not already loaded...
