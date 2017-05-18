@@ -9,9 +9,9 @@
 (smartparens-global-mode t)
 
 ;; company mode
-(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)
 (company-quickhelp-mode 1)
-;(setq company-idle-delay nil)
+(setq company-idle-delay nil)
 
 ;; rtags
 (defun setup-flycheck-rtags ()
@@ -39,8 +39,9 @@
   (setq rtags-autostart-diagnostics t)
   (rtags-diagnostics)
   (setq rtags-completions-enabled t)
-  ;; (push 'company-rtags company-backends)
-  (add-to-list 'company-backends 'company-rtags)
+  (setq rtags-display-result-backend 'ivy)
+  (push 'company-rtags company-backends)
+  ;;(add-to-list 'company-backends 'company-rtags)
   ;; use rtags flycheck mode -- clang warnings shown inline
   (require 'flycheck-rtags)
   ;; c-mode-common-hook is also called by c++-mode
