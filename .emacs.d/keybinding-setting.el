@@ -12,9 +12,15 @@
 
 ;; (global-set-key (kbd "<f5>") 'gdb)
 (global-set-key (kbd "<f5>") 'realgud:gdb)
-(if (bound-and-true-p realgud:gdb)
-    (define-key minor-mode-map (kbd "<f5>") nill)
-  )
+(cond ((bound-and-true-p realgud:gdb)
+       (define-key minor-mode-map (kbd "<f5>") nill)
+       (define-key minor-mode-map (kbd "<f6>") nill)
+       (define-key minor-mode-map (kbd "<f7>") nill)
+       (define-key minor-mode-map (kbd "<f8>") nill)
+       (define-key minor-mode-map (kbd "<f9>") nill)
+       (define-key minor-mode-map (kbd "<f10>") nill)
+       (define-key minor-mode-map (kbd "<f11>") nill)
+  ))
 
 (global-set-key (kbd "<f7>") 'previous-error)
 (global-set-key (kbd "<f8>") 'next-error)
@@ -122,20 +128,5 @@
 
 (add-hook 'c++-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c m o f 4 x")
-                           (lambda ()
-                             (interactive)
-                             (Modules-module "load gcc openmpi OpenFOAM/4.x")
-                             )
-                           )
-            ))
-
-(add-hook 'c++-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c m f e 4 0")
-                           (lambda ()
-                             (interactive)
-                             (Modules-module "load gcc openmpi FOAM-extend/4.0")
-                             )
-                           )
+            (local-set-key (kbd "C-c m") 'Modules-module)
             ))
