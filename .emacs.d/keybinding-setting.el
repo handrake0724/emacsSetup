@@ -10,17 +10,17 @@
 ;;;; mode specific key binding
 ;; to fine mode, M-x apropos-variable RET -mode-map$ RET
 
-;; (global-set-key (kbd "<f5>") 'gdb)
-(global-set-key (kbd "<f5>") 'realgud:gdb)
-(cond ((bound-and-true-p realgud:gdb)
-       (define-key minor-mode-map (kbd "<f5>") nill)
-       (define-key minor-mode-map (kbd "<f6>") nill)
-       (define-key minor-mode-map (kbd "<f7>") nill)
-       (define-key minor-mode-map (kbd "<f8>") nill)
-       (define-key minor-mode-map (kbd "<f9>") nill)
-       (define-key minor-mode-map (kbd "<f10>") nill)
-       (define-key minor-mode-map (kbd "<f11>") nill)
-  ))
+(global-set-key (kbd "<f5>") 'gdb)
+;; (global-set-key (kbd "<f5>") 'realgud:gdb)
+;; (cond ((bound-and-true-p realgud:gdb)
+;;        (define-key minor-mode-map (kbd "<f5>") nill)
+;;        (define-key minor-mode-map (kbd "<f6>") nill)
+;;        (define-key minor-mode-map (kbd "<f7>") nill)
+;;        (define-key minor-mode-map (kbd "<f8>") nill)
+;;        (define-key minor-mode-map (kbd "<f9>") nill)
+;;        (define-key minor-mode-map (kbd "<f10>") nill)
+;;        (define-key minor-mode-map (kbd "<f11>") nill)
+;;   ))
 
 (global-set-key (kbd "<f7>") 'previous-error)
 (global-set-key (kbd "<f8>") 'next-error)

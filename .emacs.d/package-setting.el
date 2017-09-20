@@ -114,7 +114,7 @@
 (setq TeX-quote-after-quote t)
 (cond
  ((eq system-type 'gnu/linux)
-  (setq TeX-view-program-list '(("Okular" "okular --unique %o #src:%n%b")))
+  ;; (setq TeX-view-program-list '(("Okular" "okular --unique %o #src:%n%b")))
   (setq TeX-view-program-selection '((output-pdf "Okular"))))
  ((eq system-type 'windows-nt)
   (setq TeX-view-program-list '(("Sumatra PDF" ("d:/Apps/SumatraPDF/SumatraPDF.exe -reuse-instance" (mode-io-correlate " -forward-search %b %n")
@@ -150,7 +150,7 @@
 
 
 ;; realgud
-(require 'realgud)
+;; (require 'realgud)
 
 ;; white space removal
 (add-hook 'before-save-hook 'whitespace-cleanup)

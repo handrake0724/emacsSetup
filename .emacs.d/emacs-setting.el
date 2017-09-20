@@ -44,13 +44,13 @@
 ;; (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
 ;; gdb setting
-;; (setq
-;;  ;; use gdb-many-windows by default
-;;  gdb-many-windows t
-;;
-;;  ;; Non-nil means display source file containing the main routine at startup
-;;  gdb-show-main t
-;;  )
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+ )
 
 ;; OpenFOAM coding style
 ;; for OpenFOAM
